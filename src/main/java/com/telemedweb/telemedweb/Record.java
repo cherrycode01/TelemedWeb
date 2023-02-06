@@ -10,6 +10,10 @@ public class Record {
     private int heartBeats;
     private String description;
 
+    public Record(int ordinalNumber) {
+        this.ordinalNumber = ordinalNumber;
+    }
+
     public Record (int redniBroj, Date date, int sistolickiTlak, int dijastolickiTlak, int otkucaji, String opis) {
         this.ordinalNumber = redniBroj;
         this.date = date;
