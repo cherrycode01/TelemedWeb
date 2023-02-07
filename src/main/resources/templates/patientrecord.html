@@ -46,9 +46,9 @@
 <div class="container">
 
   <header>
-    <button style="float: left;" name="button" onclick="window.location.href='patientrecord.html'"><img
+    <button style="float: left;" name="button" onclick="window.location.href='/records'"><img
             src="telemedcrop.png" alt="telemedlogo" width="150" height="100"></button>
-    <button style="float: right;" name="button" onclick="window.location.href='patientrecord.html'"><img
+    <button style="float: right;" name="button" onclick="window.location.href='/records'"><img
             src="person.png" alt="person" width="100" height="100">Baka Bakić</button>
   </header>
 
@@ -60,7 +60,6 @@
   <table class="table .table-condensed" style="margin-top: 8%;">
     <thead>
     <tr>
-      <th>rb.</th>
       <th>Datum</th>
       <th>Sistolički tlak</th>
       <th>Dijastolički tlak</th>
@@ -71,12 +70,11 @@
 
     <tbody>
     <tr th:each="item : ${recordList}">
-      <td th:text="${item.ordinalNumber}">1</td>
-      <td th:text="${item.date}">1.2.2023. 10:23</td>
-      <td th:text="${item.systolic}">50</td>
-      <td th:text="${item.diastolic}">50</td>
-      <td th:text="${item.heartBeats}">50</td>
-      <td th:text="${item.description}">Super</td>
+      <td th:text="${#dates.format(item.date, 'dd.MM.yyyy')}"></td>
+      <td th:text="${item.systolic}"></td>
+      <td th:text="${item.diastolic}"></td>
+      <td th:text="${item.heartBeats}"></td>
+      <td th:text="${item.description}"></td>
 
     </tr>
 

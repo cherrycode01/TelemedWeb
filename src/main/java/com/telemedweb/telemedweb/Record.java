@@ -3,34 +3,20 @@ package com.telemedweb.telemedweb;
 import java.util.Date;
 
 public class Record {
-    private int ordinalNumber;
     private Date date;
     private int systolic;
     private int diastolic;
     private int heartBeats;
     private String description;
 
-    public Record(int ordinalNumber) {
-        this.ordinalNumber = ordinalNumber;
-    }
 
-    public Record (int redniBroj, Date date, int sistolickiTlak, int dijastolickiTlak, int otkucaji, String opis) {
-        this.ordinalNumber = redniBroj;
+    public Record (Date date, int systolic, int diastolic, int heartBeats, String description) {
         this.date = date;
-        this.systolic = sistolickiTlak;
-        this.diastolic = dijastolickiTlak;
-        this.heartBeats = otkucaji;
-        this.description = opis;
+        this.systolic = systolic;
+        this.diastolic = diastolic;
+        this.heartBeats = heartBeats;
+        this.description = description;
     }
-
-    public int getOrdinalNumber () {
-        return ordinalNumber;
-    }
-
-    public void setOrdinalNumber (int ordinalNumber) {
-        this.ordinalNumber = ordinalNumber;
-    }
-
     public Date getDate () {
         return date;
     }
