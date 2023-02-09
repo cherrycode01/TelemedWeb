@@ -13,13 +13,18 @@ public class LoginController {
     public class loginController {
     }
 
+    @GetMapping("/login")
+    public String loginLogin (Model model) {
+        return "login.html";
+    }
+
     @GetMapping("/doctorLogin")
     public String doctorLogin (Model model) {
         return "doctordashboard.html";
     }
 
     @GetMapping("/patientLogin")
-    public String doctorLogin (Model model) {
+    public String patientLogin (Model model) {
         return "patientrecord.html";
     }
 }
