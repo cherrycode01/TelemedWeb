@@ -79,27 +79,24 @@
             </center>
         </div>
 
-        <table id="patientlist" class="table .table-condensed" style="margin-top: 8%;">
+        <table id="userslist" class="table .table-condensed" style="margin-top: 8%;">
             <thead>
-                <tr>
                 <tr>
                     <th>Ime</th>
                     <th>Prezime</th>
                     <th>Broj mobitela</th>
                     <th>MBO</th>
                     <th>Email</th>
-                    <th>Izbriši</th>
                 </tr>
             </thead>
 
             <tbody>
-            <tr class="clickable" th:each="item : ${patientList}" onclick="window.location='/redirectToPatient'">
+            <tr class="clickable" th:each="item : ${usersList}" onclick="window.location='/showRecordsForPatient'">
                 <td th:text="${item.firstName}"></td>
                 <td th:text="${item.lastName}"></td>
                 <td th:text="${item.phoneNumber}"></td>
                 <td th:text="${item.mbo}"></td>
                 <td th:text="${item.email}"></td>
-                <td><a href="#" onclick="deleteRow(this);">Izbriši</a></td>
             </tr>
             </tbody>
 

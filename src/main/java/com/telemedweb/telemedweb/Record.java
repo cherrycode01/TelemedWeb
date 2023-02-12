@@ -8,7 +8,7 @@ public class Record {
     private int diastolic;
     private int heartBeats;
     private String description;
-
+    private Users users;
 
     public Record (Date date, int systolic, int diastolic, int heartBeats, String description) {
         this.date = date;
@@ -55,5 +55,13 @@ public class Record {
 
     public void setDescription (String description) {
         this.description = description;
+    }
+
+    public Users getUsers () {
+        return users;
+    }
+
+    public void setUsers (Users users) {
+        this.users = users;
     }
 }

@@ -59,11 +59,11 @@
             <h3 style="color: dimgray;">Telemedicinski sustav za slanje i pregled krvnog tlaka</h3>
         </center>
 
-        <form>
+        <form action="loginProcess">
 
             <div class="form-outline mb-4">
-                <label for="username">Korisničko ime</label>
-                <input type="text" id="username" name="username" required>
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" required>
             </div>
 
             <div class="form-outline mb-4">
@@ -77,15 +77,11 @@
                 </div>
             </div>
 
-            <button type="button" class="btn btn-danger btn-block mb-4"
-                    style="font-size: 20px; background-color: #ae0640;"
-                    onclick="window.location.href='/patientLogin'">Prijava pacijent</button>
-
-            <button type="button" class="btn btn-danger btn-block mb-4"
-                    style="font-size: 20px; background-color: #ae0640;"
-                    onclick="window.location.href='/doctorLogin'">Prijava doktor</button>
+            <button type="button" class="btn btn-danger btn-block mb-4" style="font-size: 20px; background-color: #ae0640;">Prijava</button>
 
         </form>
+
+        <div th:text="${userMessage ?: ''}"></div>
 
     </div>
 
