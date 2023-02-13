@@ -30,12 +30,6 @@ public class UserRepositoryMem {
         return usersList;
     }
 
-    @GetMapping("/addPatient")
-    public String addPatient (String fname, String lname,  String phone, String email, String password, String mbo, Model model) {
-        Users newUsers = new Users (fname, lname, phone, email, password, mbo);
-        usersList.add (newUsers);
-        return "redirect:/users";
-    }
 
     public List<Users> getUsersListWhichArePatients () {
         List<Users> usersListPat = new ArrayList<> ();

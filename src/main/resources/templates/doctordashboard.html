@@ -91,7 +91,8 @@
             </thead>
 
             <tbody>
-            <tr class="clickable" th:each="item : ${usersList}" onclick="window.location='/showRecordsForPatient'">
+            <tr class="clickable" th:each="item : ${usersList}"
+                th:onclick="window.location='/showRecordForPatient?userId=' + ${user.id}">
                 <td th:text="${item.firstName}"></td>
                 <td th:text="${item.lastName}"></td>
                 <td th:text="${item.phoneNumber}"></td>

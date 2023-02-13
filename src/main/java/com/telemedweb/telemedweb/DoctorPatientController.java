@@ -14,6 +14,7 @@ import java.util.List;
 public class DoctorPatientController {
     Users currUsers;
     List<Record> recordList = new ArrayList<> ();
+
     List<Record> getRecordListForUsersId (int usersId) {
         // filter todos only for that user
         List<Record> recordForUsers = new ArrayList<> ();
@@ -64,7 +65,7 @@ public class DoctorPatientController {
     }
 
     @GetMapping("/showNewRecord")
-    public String shownewRecord(Model model) {
+    public String shownewRecord (Model model) {
         model.addAttribute (recordList);
         return "patientinput.html";
 
@@ -74,8 +75,9 @@ public class DoctorPatientController {
     // DOCTOR METHODS
 
     @GetMapping("/users")
-    public String showUsers () {
-        return "doctordashbard.html";
+    public String showUsers (Model model) {
+        model.addAttribute (userRepository.getUsersListWhichArePatients ());
+        return "doctordashboard.html";
     }
 
     @GetMapping("/showRecordsForPatient")
@@ -95,28 +97,36 @@ public class DoctorPatientController {
 
     }
 
+    @GetMapping("/addPatient")
+    public String addPatient (String fname, String lname, String phone, String email, String password, String mbo) {
+        Users newUsers = new Users (fname, lname, phone, email, password, mbo);
+        userRepository.getUsersList ().add (newUsers);
+        return "redirect:/users";
+    }
+
+
     // LOGIN METHODS
 
     @GetMapping("/login")
-    public String login() {
+    public String login () {
         return "login.html";
     }
 
     @GetMapping("/loginProcess")
-    public String login(String email, String pass, Model model) {
+    public String login (String email, String password, Model model) {
 
         // find user in list
-        Users users = userRepository.getUsersByEmailAndPassword(email, pass);
+        Users users = userRepository.getUsersByEmailAndPassword (email, password);
 
-        if(users != null) {
-            System.out.println("User found: " + users);
+        if (users != null) {
+            System.out.println ("User found: " + users);
             currUsers = users;
-            if(users.getType() == 0)
-                return "redirect:/records?userId=" + users.getId();
+            if (users.getType () == 0)
+                return "redirect:/records?userId=" + users.getId ();
             else
                 return "redirect:/users";
         } else {
-            model.addAttribute("userMessage","Nepostojeći korisnik!");
+            model.addAttribute ("userMessage", "Nepostojeći korisnik!");
             return "login.html";
         }
     }
