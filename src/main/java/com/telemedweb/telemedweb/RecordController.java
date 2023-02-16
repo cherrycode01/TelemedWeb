@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class RecordController {
@@ -15,6 +16,20 @@ public class RecordController {
     UserRepository userRepository;
     @Autowired
     RecordRepository recordRepository;
+
+    @GetMapping ("/init")
+    String init() {
+
+        List<User> testUser = (List<User>) userRepository.findAll ();
+        System.out.println (testUser);
+
+        User user = new User ("admin@gmail.com", "test123");
+        user.setType(1);
+
+        userRepository.save (user);
+        return "login.html";
+
+    }
 
     // PATIENT METHODS
 
