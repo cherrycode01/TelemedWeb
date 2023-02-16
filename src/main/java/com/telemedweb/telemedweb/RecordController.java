@@ -17,20 +17,6 @@ public class RecordController {
     @Autowired
     RecordRepository recordRepository;
 
-    @GetMapping ("/init")
-    String init() {
-
-        List<User> testUser = (List<User>) userRepository.findAll ();
-        System.out.println (testUser);
-
-        User user = new User ("admin@gmail.com", "test123");
-        user.setType(1);
-
-        userRepository.save (user);
-        return "login.html";
-
-    }
-
     // PATIENT METHODS
 
     @GetMapping("/records")
