@@ -1,15 +1,26 @@
 package com.telemedweb.telemedweb;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
 public class Record {
+    @Id
+    @GeneratedValue
+    private Long id;
     private Date date;
     private int systolic;
     private int diastolic;
     private int heartBeats;
     private String description;
-    private Users users;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+
+    private User user;
+    public Record () {
+    }
     public Record (Date date, int systolic, int diastolic, int heartBeats, String description) {
         this.date = date;
         this.systolic = systolic;
@@ -57,11 +68,15 @@ public class Record {
         this.description = description;
     }
 
-    public Users getUsers () {
-        return users;
+    public User getUser () {
+        return user;
     }
 
-    public void setUsers (Users users) {
-        this.users = users;
+    public void setUser (User user) {
+        this.user = user;
+    }
+
+    public Long getId () {
+        return id;
     }
 }
