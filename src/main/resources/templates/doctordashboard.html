@@ -80,14 +80,17 @@
             </center>
         </div>
 
+
+        <div class="col-md-auto">
+            <div class="table-responsive">
         <table id="userlist" class="table .table-condensed" style="margin-top: 8%;">
             <thead>
                 <tr>
                     <th>Ime</th>
                     <th>Prezime</th>
-                    <th>Broj mobitela</th>
+                    <th class="hidden-xs">Broj mobitela</th>
                     <th>MBO</th>
-                    <th>Email</th>
+                    <th class="hidden-xs">Email</th>
                     <th>Pregledaj zapise</th>
                     <th>Izbriši pacijenta</th>
                 </tr>
@@ -108,7 +111,8 @@
             </tbody>
 
         </table>
-
+            </div>
+        </div>
         <button type="submit" class="btn btn-danger btn-block mb-4" style="font-size: 20px; background-color: #ae0640;" onclick="window.location.href='/redirectToForm'">Dodaj novog pacijenta</button>
 
     </div>
