@@ -38,16 +38,6 @@
             color: #ae0640;
             text-align: center;
         }
-
-                 .horizontal-scrollable > .row {
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-
-        .horizontal-scrollable > .row > .col-xs-4 {
-            display: inline-block;
-            float: none;
-        }
     </style>
 
 </head>
@@ -59,7 +49,7 @@
         <header>
             <button style="float: left;" name="button" onclick="window.location.href='/users'"><img
                     src="telemedcrop.png" alt="telemedlogo" width="150" height="100"></button>
-            <button style="float: right;" name="button" onclick="window.location.href='/users'"><img
+            <button style="float: right;" name="button" onclick="window.location.href='/'"><img
                     src="doctor.png" alt="doctor" width="100" height="100"></button>
 
         </header>
@@ -67,9 +57,6 @@
         <center>
             <h1><span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span> </h1>
         </center>
-
-        <div class="container horizontal-scrollable">
-            <div class="row text-center">
 
         <table class="table .table-condensed" style="margin-top: 8%;">
             <thead>
@@ -97,8 +84,6 @@
 
         </table>
         </div>
-        </div>
-    </div>
     <footer class="d-none d-xl-block">&copy; Telemed 2023 Health IT. All rights reserved.</footer>
 </body>
 
