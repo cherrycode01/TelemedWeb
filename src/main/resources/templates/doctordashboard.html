@@ -81,7 +81,7 @@
         </div>
 
 
-        <div class="col-md-auto">
+        <div class="col-lg-12">
             <div class="table-responsive">
         <table id="userlist" class="table .table-condensed" style="margin-top: 8%;">
             <thead>
@@ -100,9 +100,9 @@
             <tr th:each="user : ${userList}">
                 <td th:text="${user.firstName}"></td>
                 <td th:text="${user.lastName}"></td>
-                <td th:text="${user.phoneNumber}"></td>
+                <td class="hidden-xs" th:text="${user.phoneNumber}"></td>
                 <td th:text="${user.mbo}"></td>
-                <td th:text="${user.email}"></td>
+                <td class="hidden-xs" th:text="${user.email}"></td>
                 <td> <a th:href="@{'/showRecordsForUser?userId=' + ${user.id}}">Pregledaj</a></td>
                 <td><a th:href="@{'/deletePatientByDoctor?id=' + ${user.id}}" onclick="return confirm('Da li ste sigurni?');">Izbriši</a></td>
             </tr>
