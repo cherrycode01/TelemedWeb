@@ -50,7 +50,7 @@
     <button style="float: left;" name="button" onclick="window.location.href='/records'"><img
             src="telemedcrop.png" alt="telemedlogo" width="150" height="100"></button>
     <button style="float: right;" name="button" onclick="window.location.href='/'"><img
-            src="patient.png" alt="patient" width="100" height="100"><span style="text-align:inherit;" th:text="${currUser.firstName} + ' ' + ${currUser.lastName}"></span></button>
+            src="patient.png" alt="patient" width="100" height="100"></button>
 
   </header>
 
@@ -58,7 +58,14 @@
     <h1>Evidencija svih zapisa</h1>
   </center>
 
-  <table class="table .table-condensed" style="margin-top: 8%;">
+  <center>
+  <span style="text-align:inherit;" th:text="${currUser.firstName} + ' ' + ${currUser.lastName}"></span>
+  </center>
+
+
+  <div class="col-lg-12">
+    <div class="table-responsive">
+    <table class="table .table-condensed" style="margin-top: 8%;">
     <thead>
     <tr>
       <th>Datum</th>
@@ -83,6 +90,8 @@
     </tbody>
 
   </table>
+    </div>
+  </div>
 
   <button type="submit" class="btn btn-danger btn-block mb-4" style="font-size: 20px; background-color: #ae0640;" th:onclick="|window.location.href = '/redirectToUserForm?userId=${currUser.id}'|">Dodaj novi zapis</button>
 
